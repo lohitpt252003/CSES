@@ -164,6 +164,8 @@ for cpp_file in *.cpp; do
         echo -e "Test $(printf "%-3s" "$test_name"): ${status_color}[$status_text]${NC} - Time: $run_time | Mem: $run_mem"
 
         if [ "$status_text" == "WA" ]; then
+            # echo "   --- Input ---"
+            # sed 's/^/   /' "$input" | head -n 10
             echo "   --- Expected ---"
             sed 's/^/   /' "$expected_out" | head -n 10
             echo "   --- Got ---"

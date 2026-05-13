@@ -198,8 +198,12 @@ T modpow(T a, T b, T m) {
 }
 
 void solve() {
-    ll n; cin >> n;
-    cout << modpow(2ll, n, MOD);
+    int n; cin >> n;
+    ll ans = 0;
+
+    for (int i = 5; n / i > 0; i *= 5) ans += n / i;
+
+    cout << ans;
 }
 
 int main() {

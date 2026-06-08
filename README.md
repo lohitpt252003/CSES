@@ -130,9 +130,9 @@ All solutions are written in `C++17`. The focus is on clean, optimal logic using
 * [x] Permutations
 * [ ] Number Spiral
 * [ ] Two Knights
-* [ ] Two Sets
-* [ ] Bit Strings
-* [ ] Trailing Zeros
+* [x] Two Sets
+* [x] Bit Strings
+* [x] Trailing Zeros
 * [ ] Coin Piles
 * [ ] Palindrome Reorder
 * [ ] Gray Code

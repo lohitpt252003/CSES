@@ -16,3 +16,5 @@ touch "$TARGET_DIR/solution.cpp"
 
 echo "Created folder: $TARGET_DIR"
 echo "Created folder: $TARGET_DIR/tests"
+
+

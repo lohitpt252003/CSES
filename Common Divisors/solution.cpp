@@ -567,9 +567,19 @@ public:
 void solve() {
     int n; cin >> n;
     vector<int> a(n); scan_numbers(a);
+    int MAXN = 1e6 + 10;
+    vector<int> hash(MAXN, 0);
+    for (const int &it : a) hash[it]++;
+    int ans = 1;
 
-    int ans = 0;
-    for (int it : a) ans = gcd(ans, it);
+    for (int i = MAXN - 1; i >= 0; i--) {
+        int f = 0;
+        for (int j = i; j < MAXN; j += i) f += hash[j];
+        if (f > 1) {
+            ans = i;
+            break;
+        }
+    }
 
     cout << ans << newl;
 }

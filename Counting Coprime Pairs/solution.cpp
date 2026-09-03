@@ -565,37 +565,14 @@ public:
 
 
 void solve() {
-    ll n;
-    int k; cin >> n >> k;
-    vector<ll> a(k); scan_numbers(a);
-    ll ans = 0;
-
-    for (int i = 1; i < (1 << k); i++) {
-        __int128_t curp = 1;
-        int f = 0;
-        for (int j = 0; j < k; j++) {
-            if (i & (1 << j)) {
-                curp = curp * a[j];
-                f++;
-            }
-            if (curp > n) break;
-        }
-
-        if (curp > n) continue;
-        if (f & 1) ans += n / (ll) curp;
-        else  ans -= n / (ll) curp;
-    }
-
-    cout << ans << newl;
+    
 }
-
-
 
 int main() {
     ios::sync_with_stdio(false); cin.tie(__null);
     
     int t = 1;
-    // cin >> t;
+    cin >> t;
     
     while(t--) solve();
     

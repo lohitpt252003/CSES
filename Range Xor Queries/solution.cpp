@@ -376,6 +376,7 @@ template<typename T> struct ST_Gcd { T operator()(T a, T b) const { while(b) { a
 template<typename T> struct ST_Lcm { T operator()(T a, T b) const { if (a == 0 or b == 0) return 0; T ta = a, tb = b; while(tb) { ta %= tb; std::swap(ta, tb); } return (a / ta) * b; } T id() const { return 1; } };
 template<typename T> struct ST_And { T operator()(T a, T b) const { return a & b; } T id() const { return ~(T)0; } };
 template<typename T> struct ST_Or  { T operator()(T a, T b) const { return a | b; } T id() const { return 0; } };
+template<typename T> struct ST_Sum { T operator()(T a, T b) const { return a + b; } T id() const { return 0; } };
 
 template <typename T, typename Op>
 class SparseTable {
@@ -565,31 +566,15 @@ public:
 
 
 void solve() {
-    ll n;
-    int k; cin >> n >> k;
-    vector<ll> a(k); scan_numbers(a);
-    ll ans = 0;
+    int n, q; cin >> n >> q;
+    vector<ll> a(n); scan_numbers(a);
+    StaticPrefixArray t(a, 0, 1);
 
-    for (int i = 1; i < (1 << k); i++) {
-        __int128_t curp = 1;
-        int f = 0;
-        for (int j = 0; j < k; j++) {
-            if (i & (1 << j)) {
-                curp = curp * a[j];
-                f++;
-            }
-            if (curp > n) break;
-        }
-
-        if (curp > n) continue;
-        if (f & 1) ans += n / (ll) curp;
-        else  ans -= n / (ll) curp;
+    while (q--) {
+        int l, r; cin >> l >> r;
+        cout << t.queryXor(l - 1, r - 1) << newl;
     }
-
-    cout << ans << newl;
 }
-
-
 
 int main() {
     ios::sync_with_stdio(false); cin.tie(__null);

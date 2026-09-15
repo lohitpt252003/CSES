@@ -588,6 +588,10 @@ vector<vector<Mint>> _pow(vector<vector<Mint>> a, ll n) {
 
 void solve() {
     ll n; cin >> n;
+    if (n == 0) {
+        cout << 0 << newl;
+        return;
+    }
 
 
     vector<vector<Mint>> arr = {{1, 1}, {1, 0}};
